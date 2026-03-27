@@ -72,7 +72,7 @@ syntax = "proto3";
 
 package student;
 
-option go_package = "grpc-student/studentpb";
+option go_package = "./studentpb";
 
 service StudentService {
   rpc GetStudent (StudentRequest) returns (StudentResponse);
