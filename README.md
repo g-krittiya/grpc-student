@@ -96,12 +96,29 @@ Run the following command to generate the Go code from the proto file:
 ```bash
 protoc --go_out=. --go-grpc_out=. proto/student.proto
 ```
+### Explanation:
+This command generates Go code from the `student.proto` file.
+```text
+| Part                | Meaning                        |
+| ------------------- | ------------------------------ |
+| protoc              | Protocol Buffer compiler       |
+| --go_out=.          | Generate message code (.pb.go) |
+| --go-grpc_out=.     | Generate gRPC service code     |
+| proto/student.proto | Input proto file               |
+```
 
 This will generate:
 ```text
 studentpb/
     student.pb.go
     student_grpc.pb.go
+```
+
+```text
+| File               | Purpose                              |
+|--------------------|------------------------------------- |
+| student.pb.go      | Message structs (Request/Response)   |
+| student_grpc.pb.go | gRPC client and server interfaces    |
 ```
 
 ---
