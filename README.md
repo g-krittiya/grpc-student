@@ -53,7 +53,6 @@ grpc-student/
 │
 ├── proto/
 │   └── student.proto
-├── studentpb/
 ├── server/
 │   └── server.go
 ├── client/
@@ -157,7 +156,8 @@ func main() {
 
 Run server terminal1:
 ```bash
-go run server/server.go
+go mod tidy // to update go.mod
+go run server/server.go // to run server
 ```
 Server will run on:
 `localhost:50051`
