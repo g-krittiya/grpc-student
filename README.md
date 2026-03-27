@@ -269,3 +269,35 @@ grpc-student/
 ├── go.mod
 └── go.sum
 ```
+
+---
+🧪Assignments:
+---
+### 📌 Task 1: Add ListStudents RPC method to the `student.proto`
+```proto
+rpc ListStudents (Empty) returns (StudentListResponse);
+```
+Add messages:
+```proto
+message Empty {}
+
+message StudentListResponse {
+  repeated StudentResponse student = 1;
+}
+```
+Students must:
+- Update proto
+- Regenerate code
+- Implement a server method and return a list of students
+- Update client to call ListStudents
+
+---
+### 📌 Task 2: Add New Field
+Add `phone` in StudentResponse:
+```proto
+  string phone = 5;
+```
+Students must:
+- Regenerate proto
+- Update server response
+- Update client output
