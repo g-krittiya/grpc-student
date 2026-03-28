@@ -301,3 +301,12 @@ Students must:
 - Regenerate proto
 - Update server response
 - Update client output
+
+
+---
+## Submission - Due: Monday 30, 23:59
+- Push project to your Git repository (Repository name: `grpc-student-รหัสนักศึกษา`)
+- Copy GitHub link to a text file: `grpc-student-รหัสนักศึกษา.txt`
+- Submit at: `https://courses.cs.tu.ac.th`
+
+Note: `รหัสนักศึกษา` is your student ID
