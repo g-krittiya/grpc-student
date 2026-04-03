@@ -6,10 +6,24 @@ option go_package = "./studentpb";
 
 service StudentService {
   rpc GetStudent (StudentRequest) returns (StudentResponse);
+  rpc ListStudents (Empty) returns (StudentListResponse);
+  rpc CreateStudent (StudentListResponse) returns (Empty);
+  rpc DeleteStudent (DeleteStudentRequest) returns (Empty);
+}
+
+message Empty {}
+
+message StudentListResponse {
+  repeated StudentResponse student = 1;
+}
+
+message DeleteStudentRequest {
+  string name = 1;
 }
 
 message StudentRequest {
   int32 id = 1;
+  optional string name = 2;
 }
 
 message StudentResponse {

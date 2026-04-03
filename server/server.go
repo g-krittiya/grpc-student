@@ -27,8 +27,29 @@ func (s *server) GetStudent(ctx context.Context, req *pb.StudentRequest) (*pb.St
 	}, nil
 }
 
+func (s *server) ListStudents(context.Context, *pb.Empty) (*pb.StudentListResponse, error) {
+	log.Println("Received request for all students")
+
+	listStudents := []*pb.StudentResponse{
+		{
+			Id:    100,
+			Name:  "Mary Smith",
+			Major: "Computer Science",
+			Email: "marry.s@mail.com",
+		},
+		{
+			Id:    101,
+			Name:  "John Doe",
+			Major: "Computer Science",
+			Email: "john.d@mail.com",
+		},
+	}
+
+	return &pb.StudentListResponse{Student: listStudents}, nil
+}
+
 func main() {
-	lis, err := net.Listen("tcp", ":50051")
+	lis, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}
@@ -37,7 +58,7 @@ func main() {
 
 	pb.RegisterStudentServiceServer(grpcServer, &server{})
 
-	log.Println("gRPC Server running on port 50051")
+	log.Println("gRPC Server running on port 8080")
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v", err)
 	}
